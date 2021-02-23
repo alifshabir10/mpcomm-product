@@ -15,6 +15,7 @@
 ---- 
 
 ## Nodemon supaya bisa debug gunakan : 
+### edit nodemon.json
 {
     "verbose": false,
     "watch": [

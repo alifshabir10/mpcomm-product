@@ -39,7 +39,16 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
 
 // #2 add this script when you add other route
-app.use('/api/regions', routes.regions);
+app.use('/api/account', routes.account)
+app.use('/api/brand', routes.brand)
+app.use('/api/category', routes.category)
+app.use('/api/categoryImg', routes.categoryImg)
+app.use('/api/condition', routes.condition)
+app.use('/api/product', routes.product)
+app.use('/api/productImages', routes.productImages)
+app.use('/api/productVariant', routes.productVariant)
+app.use('/api/status', routes.status)
+
 
 
 // Catch unauthorised errors

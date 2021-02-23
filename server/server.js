@@ -1,4 +1,5 @@
 import config from './../config/config'
+import { sequelize } from './models/IndexModel';
 import app from './express'
 
 
@@ -6,19 +7,11 @@ import app from './express'
 const dropDatabaseSync = false;
 sequelize.sync({ force: dropDatabaseSync }).then(async () => {
   if (dropDatabaseSync) {
-    console.log("Connection to db established...")
+    console.log("Connection established, but do nothing")
   }
 
-  app.listen(process.env.PORT, () =>
+  app.listen(config.port, () =>
   console.info('Server started on port %s.', config.port),
   );
 });
 
-
-/* app.listen(config.port, (err) => {
-  if (err) {
-    console.log(err)
-  }
-  console.info('Server started on port %s.', config.port)
-})
- */

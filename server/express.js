@@ -4,6 +4,10 @@ import cookieParser from 'cookie-parser'
 import compress from 'compression'
 import cors from 'cors'
 
+// import model dan routes
+import models from './models/IndexModel';
+import routes from './routes/IndexRoute';
+
 
 //comment script dibawah before building for production
 import devBundle from './devBundle'
@@ -21,24 +25,21 @@ app.use(cookieParser())
 // secure apps by setting various HTTP headers
 app.use(compress())
 // enable CORS - Cross Origin Resource Sharing
-app.use(cors())
-
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
+app.use(cors());
 
 // middleware
 app.use(async (req, res, next) => {
-  req.context = {
-    models
-  };
+  req.context = {models};
   next();
 });
 
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
+
+
+
 
 // mount routes
-app.use('/', userRoutes)
-
-
-
+app.use('/api/regions', routes.regions);
 
 
 // Catch unauthorised errors

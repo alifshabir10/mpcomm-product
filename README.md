@@ -21,3 +21,12 @@ An online marketplace application with seller accounts, product search and sugge
    - To run the application for development, run ```  npm run development  ``` or ``` yarn development ```
 5. Open [localhost:3000](http://localhost:3000/) in the browser
 ---- 
+
+Nodemon : 
+{
+    "verbose": false,
+    "watch": [
+      "./server"
+    ],
+    "exec": "webpack --mode=development --config webpack.config.server.js && node ./dist/server.generated.js"
+}

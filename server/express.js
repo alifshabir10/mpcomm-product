@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser'
 import compress from 'compression'
 import cors from 'cors'
 
-// import model dan routes
+// #1. add this script to import model dan routes
 import models from './models/IndexModel';
 import routes from './routes/IndexRoute';
 
@@ -27,7 +27,7 @@ app.use(compress())
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
 
-// middleware
+// #middleware
 app.use(async (req, res, next) => {
   req.context = {models};
   next();
@@ -38,7 +38,7 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
 
 
-// mount routes
+// #2 add this script when you add other route
 app.use('/api/regions', routes.regions);
 
 

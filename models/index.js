@@ -12,7 +12,11 @@ export const sequelize = new Sequelize(
 const Op = Sequelize.Op;
 
 const models = {
-    cart : sequelize.import('./cart.model'),
+    // cart : sequelize.import('./cart.model'),
+    brand : sequelize.import('./brand.model'),
+    category : sequelize.import('./category.model'),
+    category_img : sequelize.import('./categoryImg.model'),
+    condition : sequelize.import('./condition.model')
 };
 
 Object.keys(models).forEach(key => {
